@@ -8,5 +8,5 @@ export async function shortenUrl(url: string): Promise<string> {
   })
   if (!res.ok) throw new Error("Erro ao encurtar")
   const data = await res.json()
-  return data.short_url
+  return data.shortenedUrl
 }

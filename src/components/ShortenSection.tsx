@@ -52,19 +52,42 @@ export default function ShortenSection () {
                 <p className="text-[#e24b4a] text-xs font-mono">{error}</p>
                 )}
                 {shortenedUrl && !error && (
-                <div className="flex-1 flex items-center gap-2 bg-[#0f0f0e] border border-[#2e2d2a] rounded-lg px-4 py-2 h-full">
-                    <span className="flex-1 text-sm font-mono text-[#e8e6e0] truncate">{shortenedUrl}</span>
                     <button
-                    onClick={async () => {
-                        await navigator.clipboard.writeText(shortenedUrl)
-                        setCopied(true)
-                        setTimeout(() => setCopied(false), 3000)
-                    }}
-                    className="text-xs font-mono text-[#6b6a65] hover:text-[#e8e6e0] transition-colors whitespace-nowrap"
+                        onClick={async () => {
+                            await navigator.clipboard.writeText(shortenedUrl)
+                            setCopied(true)
+
+                            setTimeout(() => {
+                                setCopied(false)
+                            }, 3000)
+                        }}
+                        className="
+                            w-full
+                            h-full
+                            flex
+                            items-center
+                            justify-between
+                            gap-3
+                            bg-[#1b1b1a]
+                            border
+                            border-[#343330]
+                            rounded-lg
+                            px-4
+                            py-2
+                            cursor-pointer
+                            hover:bg-[#232321]
+                            hover:border-[#4a4845]
+                            transition-all
+                        "
                     >
-                    {copied ? "✓ copiado" : "copiar"}
+                        <span className="flex-1 text-left text-sm font-mono text-[#d8d6d0] truncate">
+                            {shortenedUrl}
+                        </span>
+
+                        <span className="text-xs font-mono text-[#8a8882] whitespace-nowrap">
+                            {copied ? "✓ copiado" : "clique para copiar"}
+                        </span>
                     </button>
-                </div>
                 )}
             </div>
         </div>
