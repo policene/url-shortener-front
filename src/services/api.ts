@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.API_URL;
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export async function shortenUrl(url: string): Promise<string> {
   const res = await fetch(`${BASE_URL}/shorten`, {
