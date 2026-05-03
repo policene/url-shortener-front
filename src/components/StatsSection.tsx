@@ -11,7 +11,6 @@ interface Stats {
   expirated: boolean
 }
 
-const BASE_URL = import.meta.env.VITE_API_URL;
 
 function extractSlug(input: string): string {
   try {
