@@ -10,3 +10,10 @@ export async function shortenUrl(url: string): Promise<string> {
   const data = await res.json()
   return data.shortenedUrl
 }
+
+
+export async function getStats(slug: string) {
+  const res = await fetch(`${BASE_URL}/api/stats/${slug}`)
+  if (!res.ok) throw new Error("Não encontrada")
+  return res.json()
+}
